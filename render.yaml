@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: crunchyroll-checker-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python telegram_crunchyroll_render.py"
+    healthCheckPath: /health
+    healthCheckInterval: 30
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_USERNAME
+        value: "@ego_exist"
+      - key: PYTHON_VERSION
+        value: "3.11"
+
+databases:
+  - name: bot-config
+    plan: free
+    ipAllowList: []
