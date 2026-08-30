@@ -1,1 +1,1 @@
-web: python telegram_crunchyroll_render.py
+web: python bot.py
